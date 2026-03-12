@@ -1,0 +1,3918 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "后端接口平台",
+    "description": "后端接口平台，包含前台接口和后台管理接口",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://ton.funever.io",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "gateway/admin/wallet/record/query": {
+      "post": {
+        "tags": ["用户钱包接口(后台)"],
+        "summary": "钱包交易查询",
+        "operationId": "queryWalletRecordForApi",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WalletRecordQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageRestUserWalletRecord"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/wallet/query": {
+      "post": {
+        "tags": ["用户钱包接口(后台)"],
+        "summary": "用户钱包查询",
+        "operationId": "queryWalletForAdmin",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserWalletQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageRestUserWallet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/wallet/change": {
+      "post": {
+        "tags": ["用户钱包接口(后台)"],
+        "summary": "用户钱包修改",
+        "operationId": "updateWalletForAdmin",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminWalletChange"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/user/query": {
+      "post": {
+        "tags": ["管理用户接口(后台)"],
+        "summary": "管理员列表[超级管理员]",
+        "operationId": "adminUserQuery",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminUserQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageRestAdminUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/user/pwd/change": {
+      "post": {
+        "tags": ["管理用户接口(后台)"],
+        "summary": "管理员修改密码",
+        "description": "修改密码后需要重新登录",
+        "operationId": "adminUserPwdChange",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminUserPwdChange"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/user/login": {
+      "post": {
+        "tags": ["管理用户接口(后台)"],
+        "summary": "管理员登陆[非登录]",
+        "operationId": "adminUserLogin",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminUserLogin"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestString"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/user/google/bind": {
+      "post": {
+        "tags": ["管理用户接口(后台)"],
+        "summary": "管理员绑定新的谷歌凭证",
+        "operationId": "bindGoogleToken",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminUserGoogleBind"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/user/edit": {
+      "post": {
+        "tags": ["管理用户接口(后台)"],
+        "summary": "管理员编辑[超级管理员]",
+        "operationId": "adminUserEdit",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminUserEdit"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestAdminUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/ton/deposit/query": {
+      "post": {
+        "tags": ["TON链接口(后台)"],
+        "summary": "金币充值查询",
+        "operationId": "tonDepositQuery",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TonDepositQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageRestTonDeposit"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/ton/coin/update": {
+      "post": {
+        "tags": ["TON链接口(后台)"],
+        "summary": "币种更新",
+        "operationId": "updateTonCoin",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TonCoin"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/game/team/query": {
+      "post": {
+        "tags": ["游戏数据接口(后台)"],
+        "summary": "战队查询",
+        "description": "默认结果按时间倒序返回，排序字段：createTime",
+        "operationId": "gameTeamQuery",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GameTeamQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageRestGameTeam"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/game/team/edit": {
+      "post": {
+        "tags": ["游戏数据接口(后台)"],
+        "summary": "战队编辑",
+        "operationId": "gameTeamEdit",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GameTeam"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/game/query": {
+      "post": {
+        "tags": ["游戏数据接口(后台)"],
+        "summary": "游戏查询",
+        "description": "默认结果按时间倒序返回，排序字段：createTime",
+        "operationId": "gameQuery",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GameQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageRestGame"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/game/match/user/query": {
+      "post": {
+        "tags": ["游戏数据接口(后台)"],
+        "summary": "比赛用户查询",
+        "operationId": "gameMatchUserQuery",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminUserMatchQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageRestAdminUserMatch"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/game/match/submit": {
+      "post": {
+        "tags": ["游戏数据接口(后台)"],
+        "summary": "比赛提交",
+        "description": "新增和更新",
+        "operationId": "gameMatchEdit",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GameMatchEdit"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/game/match/query": {
+      "post": {
+        "tags": ["游戏数据接口(后台)"],
+        "summary": "比赛查询",
+        "description": "需要提供至少三个按钮：竞猜结算、用户查询、评论查询",
+        "operationId": "gameMatchQueryForAdmin",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminGameMatchQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageRestAdminGameMatch"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/game/match/complete": {
+      "post": {
+        "tags": ["游戏数据接口(后台)"],
+        "summary": "比赛结算",
+        "description": "输入比分结算赛事",
+        "operationId": "gameMatchComplete",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GameMatchComplete"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/game/match/comment/query": {
+      "post": {
+        "tags": ["游戏数据接口(后台)"],
+        "summary": "比赛评论查询",
+        "operationId": "gameMatchRemarkQuery",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GameMatchRemarkQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageRestGameMatchRemarkExtends"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/game/edit": {
+      "post": {
+        "tags": ["游戏数据接口(后台)"],
+        "summary": "游戏编辑",
+        "operationId": "gameEdit",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Game"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/game/contest/query": {
+      "post": {
+        "tags": ["游戏数据接口(后台)"],
+        "summary": "赛事查询",
+        "description": "默认结果按时间倒序返回，排序字段：createTime",
+        "operationId": "gameContestQuery",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GameContestQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageRestGameContest"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/game/contest/edit": {
+      "post": {
+        "tags": ["游戏数据接口(后台)"],
+        "summary": "赛事编辑",
+        "operationId": "gameContestEdit",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GameContest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/data/upload/apply": {
+      "post": {
+        "tags": ["基础配置接口(后台)"],
+        "summary": "文件上传申请",
+        "operationId": "uploadApply",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UploadParam"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestUploadFile"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/data/config/task/edit": {
+      "post": {
+        "tags": ["基础配置接口(后台)"],
+        "summary": "系统任务配置更新",
+        "description": "支持新增和编辑",
+        "operationId": "updateConfigTask",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfigTask"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/data/config/sign/edit": {
+      "post": {
+        "tags": ["基础配置接口(后台)"],
+        "summary": "系统签到配置更新",
+        "description": "仅支持编辑",
+        "operationId": "updateConfigSign",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfigSign"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/data/config/point/edit": {
+      "post": {
+        "tags": ["基础配置接口(后台)"],
+        "summary": "系统积分配置更新",
+        "description": "仅支持编辑",
+        "operationId": "updateConfigPoint",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfigPoint"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/data/config/edit": {
+      "post": {
+        "tags": ["基础配置接口(后台)"],
+        "summary": "系统基础配置更新",
+        "description": "仅支持编辑",
+        "operationId": "updateConfigBase",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfigBase"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/data/banner/update": {
+      "post": {
+        "tags": ["基础配置接口(后台)"],
+        "summary": "修改Banner",
+        "operationId": "updateBanner",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfigBanner"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/data/banner/save": {
+      "post": {
+        "tags": ["基础配置接口(后台)"],
+        "summary": "新增Banner",
+        "operationId": "saveBanner",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfigBanner"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/data/banner/query": {
+      "post": {
+        "tags": ["基础配置接口(后台)"],
+        "summary": "查询Banner",
+        "operationId": "queryBanner",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfigBannerQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageRestConfigBanner"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/client/query": {
+      "post": {
+        "tags": ["用户数据接口(后台)"],
+        "summary": "用户查询",
+        "operationId": "queryAdminUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdminUserQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageRestAdminUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/client/friends/query": {
+      "post": {
+        "tags": ["用户数据接口(后台)"],
+        "summary": "用户好友查询",
+        "operationId": "queryFriends",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserFriendQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageRestUserFriends"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/user/logout": {
+      "get": {
+        "tags": ["管理用户接口(后台)"],
+        "summary": "管理员登出",
+        "operationId": "adminUserLogout",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/user/info": {
+      "get": {
+        "tags": ["管理用户接口(后台)"],
+        "summary": "管理员信息",
+        "operationId": "adminUserInfo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestBaseAdmin"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/user/google/get": {
+      "get": {
+        "tags": ["管理用户接口(后台)"],
+        "summary": "管理员获取新的谷歌凭证",
+        "operationId": "getGoogleToken",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestGoogleKey"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/ton/coin/list": {
+      "get": {
+        "tags": ["TON链接口(后台)"],
+        "summary": "币种列表",
+        "operationId": "getTonCoinList",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestListTonCoin"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/game/match/event/get": {
+      "get": {
+        "tags": ["游戏数据接口(后台)"],
+        "summary": "比赛事件获取",
+        "operationId": "gameMatchEventForApi",
+        "parameters": [
+          {
+            "name": "mid",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestApiMatchEvent"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/data/config/task": {
+      "get": {
+        "tags": ["基础配置接口(后台)"],
+        "summary": "系统任务配置获取",
+        "operationId": "getConfigTask",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestListConfigTask"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/data/config/sign": {
+      "get": {
+        "tags": ["基础配置接口(后台)"],
+        "summary": "系统签到配置获取",
+        "operationId": "getConfigSign",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestListConfigSign"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/data/config/point": {
+      "get": {
+        "tags": ["基础配置接口(后台)"],
+        "summary": "系统积分配置获取",
+        "operationId": "getConfigPoint",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestListConfigPoint"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/data/config/base": {
+      "get": {
+        "tags": ["基础配置接口(后台)"],
+        "summary": "系统基础配置获取",
+        "operationId": "getBaseConfig",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestConfigBase"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/client/friends/summary": {
+      "get": {
+        "tags": ["用户数据接口(后台)"],
+        "summary": "用户好友汇总",
+        "operationId": "getFriendSummary",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestApiFrientSummary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/game/match/delete": {
+      "delete": {
+        "tags": ["游戏数据接口(后台)"],
+        "summary": "比赛删除",
+        "description": "只能删除无人参与的赛事",
+        "operationId": "gameGuessDelete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/game/match/comment/delete": {
+      "delete": {
+        "tags": ["游戏数据接口(后台)"],
+        "summary": "比赛评论删除",
+        "operationId": "gameMatchRemarkDelete",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/data/config/task/delete": {
+      "delete": {
+        "tags": ["基础配置接口(后台)"],
+        "summary": "系统任务配置删除",
+        "operationId": "updateConfigTask_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "gateway/admin/data/banner/delete": {
+      "delete": {
+        "tags": ["基础配置接口(后台)"],
+        "summary": "删除Banner",
+        "operationId": "deleteBanner",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseRestObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PageSort": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "[分页]排序字段名称"
+          },
+          "type": {
+            "type": "string",
+            "description": "[分页]排序方式：asc=正序 desc=倒序",
+            "example": "asc",
+            "enum": ["asc", "desc"]
+          }
+        },
+        "description": "[分页]排序列表，例：[{\"field\":\"createTime\", \"type\":\"desc\"}]"
+      },
+      "WalletRecordQuery": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "[分页]当前页，默认为1",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "[分页]每页大小，默认50，最大2000",
+            "format": "int32"
+          },
+          "sortList": {
+            "type": "array",
+            "description": "[分页]排序列表，例：[{\"field\":\"createTime\", \"type\":\"desc\"}]",
+            "items": {
+              "$ref": "#/components/schemas/PageSort"
+            }
+          },
+          "uid": {
+            "type": "integer",
+            "description": "用户Id[前端勿传]",
+            "format": "int64"
+          },
+          "type": {
+            "type": "array",
+            "description": "钱包类型",
+            "items": {
+              "type": "string",
+              "description": "钱包类型",
+              "enum": ["coin", "point", "token"]
+            }
+          },
+          "bill": {
+            "type": "array",
+            "description": "业务类型",
+            "items": {
+              "type": "string",
+              "description": "业务类型",
+              "enum": [
+                "match_stake",
+                "match_complete",
+                "admin_change",
+                "user_sign",
+                "user_invite",
+                "user_task",
+                "user_post",
+                "user_match",
+                "user_login",
+                "user_deposit"
+              ]
+            }
+          },
+          "startTimestamp": {
+            "type": "integer",
+            "description": "开始时间戳",
+            "format": "int64"
+          },
+          "endTimestamp": {
+            "type": "integer",
+            "description": "结束时间戳",
+            "format": "int64"
+          }
+        }
+      },
+      "PageRestUserWalletRecord": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页大小",
+            "format": "int32"
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "当前页",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "description": "总页数",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "description": "分页数据",
+            "items": {
+              "$ref": "#/components/schemas/UserWalletRecord"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "UserWalletRecord": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "主键Id",
+            "format": "int64"
+          },
+          "uid": {
+            "type": "integer",
+            "description": "用户Id",
+            "format": "int64"
+          },
+          "qty": {
+            "type": "number",
+            "description": "发生金额"
+          },
+          "walletType": {
+            "type": "string",
+            "description": "钱包类型",
+            "enum": ["coin", "point", "token"]
+          },
+          "walletBill": {
+            "type": "string",
+            "description": "业务类型",
+            "enum": [
+              "match_stake",
+              "match_complete",
+              "admin_change",
+              "user_sign",
+              "user_invite",
+              "user_task",
+              "user_post",
+              "user_match",
+              "user_login",
+              "user_deposit"
+            ]
+          },
+          "remark": {
+            "type": "string",
+            "description": "历史备注"
+          },
+          "comment": {
+            "type": "string",
+            "description": "后台备注"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          }
+        },
+        "description": "分页数据"
+      },
+      "UserWalletQuery": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "[分页]当前页，默认为1",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "[分页]每页大小，默认50，最大2000",
+            "format": "int32"
+          },
+          "sortList": {
+            "type": "array",
+            "description": "[分页]排序列表，例：[{\"field\":\"createTime\", \"type\":\"desc\"}]",
+            "items": {
+              "$ref": "#/components/schemas/PageSort"
+            }
+          },
+          "uid": {
+            "type": "integer",
+            "description": "用户Id",
+            "format": "int64"
+          },
+          "type": {
+            "type": "array",
+            "description": "钱包类型",
+            "items": {
+              "type": "string",
+              "description": "钱包类型",
+              "enum": ["coin", "point", "token"]
+            }
+          }
+        }
+      },
+      "PageRestUserWallet": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页大小",
+            "format": "int32"
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "当前页",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "description": "总页数",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "description": "分页数据",
+            "items": {
+              "$ref": "#/components/schemas/UserWallet"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "UserWallet": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "integer",
+            "description": "用户UID",
+            "format": "int64"
+          },
+          "type": {
+            "type": "string",
+            "description": "钱包类型",
+            "enum": ["coin", "point", "token"]
+          },
+          "balance": {
+            "type": "number",
+            "description": "可用余额"
+          },
+          "transferIn": {
+            "type": "number",
+            "description": "累计划入数量"
+          },
+          "transferOut": {
+            "type": "number",
+            "description": "累计划出数量"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          }
+        },
+        "description": "分页数据"
+      },
+      "AdminWalletChange": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "integer",
+            "description": "用户Id",
+            "format": "int64"
+          },
+          "type": {
+            "type": "string",
+            "description": "钱包类型",
+            "enum": ["coin", "point", "token"]
+          },
+          "qty": {
+            "type": "number",
+            "description": "变更数量，正加负减"
+          },
+          "remark": {
+            "type": "string",
+            "description": "调整备注"
+          }
+        }
+      },
+      "BaseRestObject": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "description": "数据"
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "AdminUserQuery": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "[分页]当前页，默认为1",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "[分页]每页大小，默认50，最大2000",
+            "format": "int32"
+          },
+          "sortList": {
+            "type": "array",
+            "description": "[分页]排序列表，例：[{\"field\":\"createTime\", \"type\":\"desc\"}]",
+            "items": {
+              "$ref": "#/components/schemas/PageSort"
+            }
+          },
+          "keyword": {
+            "type": "string",
+            "description": "关键字,查询账户"
+          },
+          "userAdmin": {
+            "type": "array",
+            "description": "超级管理员",
+            "items": {
+              "type": "boolean",
+              "description": "超级管理员"
+            }
+          },
+          "userEnable": {
+            "type": "array",
+            "description": "用户状态",
+            "items": {
+              "type": "boolean",
+              "description": "用户状态"
+            }
+          }
+        }
+      },
+      "AdminUser": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "integer",
+            "description": "用户UID",
+            "format": "int64"
+          },
+          "account": {
+            "type": "string",
+            "description": "账户"
+          },
+          "name": {
+            "type": "string",
+            "description": "名称"
+          },
+          "userAdmin": {
+            "type": "boolean",
+            "description": "超级管理员"
+          },
+          "userEnable": {
+            "type": "boolean",
+            "description": "启用状态"
+          },
+          "loginTime": {
+            "type": "string",
+            "description": "登录时间",
+            "format": "date-time"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          }
+        },
+        "description": "分页数据"
+      },
+      "PageRestAdminUser": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页大小",
+            "format": "int32"
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "当前页",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "description": "总页数",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "description": "分页数据",
+            "items": {
+              "$ref": "#/components/schemas/AdminUser"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "AdminUserPwdChange": {
+        "type": "object",
+        "properties": {
+          "oldPassword": {
+            "type": "string",
+            "description": "用户老密码"
+          },
+          "newPassword": {
+            "type": "string",
+            "description": "用户新密码"
+          },
+          "googleCode": {
+            "type": "string",
+            "description": "谷歌验证码,页面非必填,用户绑定谷歌验证码后才检查"
+          }
+        }
+      },
+      "AdminUserLogin": {
+        "type": "object",
+        "properties": {
+          "account": {
+            "type": "string",
+            "description": "用户账号"
+          },
+          "password": {
+            "type": "string",
+            "description": "用户密码"
+          },
+          "googleCode": {
+            "type": "string",
+            "description": "谷歌验证码,页面非必填,用户绑定谷歌验证码后才检查"
+          }
+        }
+      },
+      "BaseRestString": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "description": "数据"
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "AdminUserGoogleBind": {
+        "type": "object",
+        "properties": {
+          "newGoogleCode": {
+            "type": "string",
+            "description": "新的谷歌验证码"
+          },
+          "oldGoogleCode": {
+            "type": "string",
+            "description": "老的谷歌验证码,页面非必填,用户绑定谷歌验证码后才检查"
+          }
+        }
+      },
+      "AdminUserEdit": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "integer",
+            "description": "用户UID，不传表示新增",
+            "format": "int64"
+          },
+          "account": {
+            "type": "string",
+            "description": "用户账户"
+          },
+          "name": {
+            "type": "string",
+            "description": "用户名称"
+          },
+          "userAdmin": {
+            "type": "boolean",
+            "description": "超级管理员"
+          },
+          "userEnable": {
+            "type": "boolean",
+            "description": "用户启用"
+          },
+          "userPassword": {
+            "type": "string",
+            "description": "用户新密码,不传则不更新密码(新增时不传使用默认密码：a123456)"
+          },
+          "unbindGoogleToken": {
+            "type": "boolean",
+            "description": "解除谷歌绑定"
+          }
+        }
+      },
+      "BaseRestAdminUser": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/AdminUser"
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "TonDepositQuery": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "[分页]当前页，默认为1",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "[分页]每页大小，默认50，最大2000",
+            "format": "int32"
+          },
+          "sortList": {
+            "type": "array",
+            "description": "[分页]排序列表，例：[{\"field\":\"createTime\", \"type\":\"desc\"}]",
+            "items": {
+              "$ref": "#/components/schemas/PageSort"
+            }
+          },
+          "uid": {
+            "type": "integer",
+            "description": "用户Id[前台不传]",
+            "format": "int64"
+          },
+          "keyword": {
+            "type": "string",
+            "description": "关键词：哈希、转出地址、转入地址"
+          },
+          "status": {
+            "type": "array",
+            "description": "状态列表",
+            "items": {
+              "type": "string",
+              "description": "状态列表",
+              "enum": ["await", "ok", "fail", "timeout"]
+            }
+          },
+          "startTimestamp": {
+            "type": "integer",
+            "description": "开始时间戳",
+            "format": "int64"
+          },
+          "endTimestamp": {
+            "type": "integer",
+            "description": "结束时间戳",
+            "format": "int64"
+          }
+        }
+      },
+      "PageRestTonDeposit": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页大小",
+            "format": "int32"
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "当前页",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "description": "总页数",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "description": "分页数据",
+            "items": {
+              "$ref": "#/components/schemas/TonDeposit"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "TonDeposit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "主键Id",
+            "format": "int64"
+          },
+          "uid": {
+            "type": "integer",
+            "description": "用户Id",
+            "format": "int64"
+          },
+          "mid": {
+            "type": "integer",
+            "description": "备注Id",
+            "format": "int64"
+          },
+          "hash": {
+            "type": "string",
+            "description": "哈希"
+          },
+          "from": {
+            "type": "string",
+            "description": "转出地址"
+          },
+          "to": {
+            "type": "string",
+            "description": "转入地址"
+          },
+          "coin": {
+            "type": "string",
+            "description": "币种"
+          },
+          "decimals": {
+            "type": "integer",
+            "description": "小数位",
+            "format": "int32"
+          },
+          "ratio": {
+            "type": "number",
+            "description": "兑换汇率"
+          },
+          "qty": {
+            "type": "number",
+            "description": "支付金额"
+          },
+          "arrive": {
+            "type": "number",
+            "description": "到账金币"
+          },
+          "retry": {
+            "type": "integer",
+            "description": "重试次数",
+            "format": "int32"
+          },
+          "error": {
+            "type": "string",
+            "description": "异常信息"
+          },
+          "status": {
+            "type": "string",
+            "description": "充值状态",
+            "enum": ["await", "ok", "fail", "timeout"]
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          }
+        },
+        "description": "分页数据"
+      },
+      "TonCoin": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "主键",
+            "format": "int64"
+          },
+          "coin": {
+            "type": "string",
+            "description": "币种"
+          },
+          "logo": {
+            "type": "string",
+            "description": "图标"
+          },
+          "mint": {
+            "type": "string",
+            "description": "合约"
+          },
+          "decimals": {
+            "type": "integer",
+            "description": "小数位",
+            "format": "int32"
+          },
+          "enable": {
+            "type": "boolean",
+            "description": "是否启用"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          }
+        }
+      },
+      "GameTeamQuery": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "[分页]当前页，默认为1",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "[分页]每页大小，默认50，最大2000",
+            "format": "int32"
+          },
+          "sortList": {
+            "type": "array",
+            "description": "[分页]排序列表，例：[{\"field\":\"createTime\", \"type\":\"desc\"}]",
+            "items": {
+              "$ref": "#/components/schemas/PageSort"
+            }
+          },
+          "keyword": {
+            "type": "string",
+            "description": "关键字"
+          },
+          "gid": {
+            "type": "integer",
+            "description": "游戏Id",
+            "format": "int64"
+          }
+        }
+      },
+      "GameTeam": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "战队Id",
+            "format": "int64"
+          },
+          "rid": {
+            "type": "integer",
+            "description": "雷电Id",
+            "format": "int64"
+          },
+          "gid": {
+            "type": "integer",
+            "description": "游戏Id",
+            "format": "int64"
+          },
+          "logo": {
+            "type": "string",
+            "description": "战队图标"
+          },
+          "name": {
+            "type": "string",
+            "description": "战队名称"
+          },
+          "intro": {
+            "type": "string",
+            "description": "战队简介"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          }
+        },
+        "description": "分页数据"
+      },
+      "PageRestGameTeam": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页大小",
+            "format": "int32"
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "当前页",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "description": "总页数",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "description": "分页数据",
+            "items": {
+              "$ref": "#/components/schemas/GameTeam"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "GameQuery": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "[分页]当前页，默认为1",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "[分页]每页大小，默认50，最大2000",
+            "format": "int32"
+          },
+          "sortList": {
+            "type": "array",
+            "description": "[分页]排序列表，例：[{\"field\":\"createTime\", \"type\":\"desc\"}]",
+            "items": {
+              "$ref": "#/components/schemas/PageSort"
+            }
+          },
+          "keyword": {
+            "type": "string",
+            "description": "关键字"
+          }
+        }
+      },
+      "Game": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "游戏Id",
+            "format": "int64"
+          },
+          "rid": {
+            "type": "integer",
+            "description": "雷电Id",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string",
+            "description": "游戏名称"
+          },
+          "intro": {
+            "type": "string",
+            "description": "游戏简介"
+          },
+          "logo": {
+            "type": "string",
+            "description": "游戏图标"
+          },
+          "sorted": {
+            "type": "integer",
+            "description": "游戏排序",
+            "format": "int32"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          }
+        },
+        "description": "分页数据"
+      },
+      "PageRestGame": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页大小",
+            "format": "int32"
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "当前页",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "description": "总页数",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "description": "分页数据",
+            "items": {
+              "$ref": "#/components/schemas/Game"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "AdminUserMatchQuery": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "[分页]当前页，默认为1",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "[分页]每页大小，默认50，最大2000",
+            "format": "int32"
+          },
+          "sortList": {
+            "type": "array",
+            "description": "[分页]排序列表，例：[{\"field\":\"createTime\", \"type\":\"desc\"}]",
+            "items": {
+              "$ref": "#/components/schemas/PageSort"
+            }
+          },
+          "uid": {
+            "type": "integer",
+            "description": "用户Id",
+            "format": "int64"
+          },
+          "mid": {
+            "type": "integer",
+            "description": "比赛Id",
+            "format": "int64"
+          },
+          "status": {
+            "type": "array",
+            "description": "结算状态",
+            "items": {
+              "type": "string",
+              "description": "结算状态",
+              "enum": ["wait", "win", "loss", "draw"]
+            }
+          }
+        }
+      },
+      "AdminUserMatch": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "主键Id",
+            "format": "int64"
+          },
+          "uid": {
+            "type": "integer",
+            "description": "用户Id",
+            "format": "int64"
+          },
+          "mid": {
+            "type": "integer",
+            "description": "比赛Id",
+            "format": "int64"
+          },
+          "min": {
+            "type": "number",
+            "description": "最小押注"
+          },
+          "game": {
+            "type": "string",
+            "description": "游戏名称"
+          },
+          "gameLogo": {
+            "type": "string",
+            "description": "游戏图标"
+          },
+          "contest": {
+            "type": "string",
+            "description": "赛事名称"
+          },
+          "dueTime": {
+            "type": "string",
+            "description": "押注截止日期",
+            "format": "date-time"
+          },
+          "startTime": {
+            "type": "string",
+            "description": "比赛开始日期",
+            "format": "date-time"
+          },
+          "ateam": {
+            "$ref": "#/components/schemas/ApiGameTeam"
+          },
+          "bteam": {
+            "$ref": "#/components/schemas/ApiGameTeam"
+          },
+          "team": {
+            "type": "integer",
+            "description": "押注战队Id",
+            "format": "int64"
+          },
+          "stake": {
+            "type": "number",
+            "description": "押注本金"
+          },
+          "profit": {
+            "type": "number",
+            "description": "押注收益"
+          },
+          "point": {
+            "type": "number",
+            "description": "奖励积分"
+          },
+          "amount": {
+            "type": "number",
+            "description": "结算总金额"
+          },
+          "fee": {
+            "type": "number",
+            "description": "结算手续费"
+          },
+          "status": {
+            "type": "string",
+            "description": "押注状态：wait=未结算 win=盈利 loss=亏损 draw=平局",
+            "enum": ["wait", "win", "loss", "draw"]
+          },
+          "detail": {
+            "$ref": "#/components/schemas/UserMatchDetail"
+          },
+          "closeTime": {
+            "type": "string",
+            "description": "结算时间",
+            "format": "date-time"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "押注创建时间",
+            "format": "date-time"
+          }
+        },
+        "description": "分页数据"
+      },
+      "ApiGameTeam": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "战队Id",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string",
+            "description": "战队名称"
+          },
+          "logo": {
+            "type": "string",
+            "description": "战队图标"
+          },
+          "win": {
+            "type": "integer",
+            "description": "战队赢场",
+            "format": "int32"
+          },
+          "count": {
+            "type": "integer",
+            "description": "参与人数",
+            "format": "int32"
+          },
+          "amount": {
+            "type": "number",
+            "description": "参与总额"
+          }
+        },
+        "description": "B战队信息"
+      },
+      "MatchApply": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "description": "押注时间",
+            "format": "date-time"
+          },
+          "stake": {
+            "type": "number",
+            "description": "押注金额"
+          },
+          "status": {
+            "type": "boolean",
+            "description": "押注状态"
+          }
+        },
+        "description": "押注详情"
+      },
+      "PageRestAdminUserMatch": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页大小",
+            "format": "int32"
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "当前页",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "description": "总页数",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "description": "分页数据",
+            "items": {
+              "$ref": "#/components/schemas/AdminUserMatch"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "UserMatchDetail": {
+        "type": "object",
+        "properties": {
+          "details": {
+            "type": "array",
+            "description": "押注详情",
+            "items": {
+              "$ref": "#/components/schemas/MatchApply"
+            }
+          }
+        },
+        "description": "押注列表"
+      },
+      "GameMatchEdit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "竞猜Id",
+            "format": "int64"
+          },
+          "gid": {
+            "type": "integer",
+            "description": "所属游戏Id",
+            "format": "int64"
+          },
+          "cid": {
+            "type": "integer",
+            "description": "所属赛事Id",
+            "format": "int64"
+          },
+          "min": {
+            "type": "number",
+            "description": "最小押注"
+          },
+          "topic": {
+            "type": "string",
+            "description": "热议标题"
+          },
+          "ateam": {
+            "type": "integer",
+            "description": "A队Id",
+            "format": "int64"
+          },
+          "bteam": {
+            "type": "integer",
+            "description": "B队Id",
+            "format": "int64"
+          },
+          "startTimestamp": {
+            "type": "integer",
+            "description": "比赛开始时间",
+            "format": "int64"
+          },
+          "dueTimestamp": {
+            "type": "integer",
+            "description": "押注截止时间",
+            "format": "int64"
+          }
+        }
+      },
+      "AdminGameMatchQuery": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "[分页]当前页，默认为1",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "[分页]每页大小，默认50，最大2000",
+            "format": "int32"
+          },
+          "sortList": {
+            "type": "array",
+            "description": "[分页]排序列表，例：[{\"field\":\"createTime\", \"type\":\"desc\"}]",
+            "items": {
+              "$ref": "#/components/schemas/PageSort"
+            }
+          },
+          "keyword": {
+            "type": "string",
+            "description": "关键字，查询游戏赛事"
+          },
+          "gid": {
+            "type": "integer",
+            "description": "游戏Id",
+            "format": "int64"
+          },
+          "status": {
+            "type": "array",
+            "description": "比赛状态",
+            "items": {
+              "type": "string",
+              "description": "比赛状态",
+              "enum": ["betting", "process", "completed"]
+            }
+          },
+          "startTimestamp": {
+            "type": "integer",
+            "description": "开始时间戳",
+            "format": "int64"
+          },
+          "endTimestamp": {
+            "type": "integer",
+            "description": "结束时间戳",
+            "format": "int64"
+          }
+        }
+      },
+      "AdminGameMatch": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "比赛Id",
+            "format": "int64"
+          },
+          "topic": {
+            "type": "string",
+            "description": "热议主题"
+          },
+          "min": {
+            "type": "number",
+            "description": "最小押注"
+          },
+          "status": {
+            "type": "string",
+            "description": "比赛状态",
+            "enum": ["betting", "process", "completed"]
+          },
+          "game": {
+            "type": "string",
+            "description": "游戏名称"
+          },
+          "gameLogo": {
+            "type": "string",
+            "description": "游戏图标"
+          },
+          "contest": {
+            "type": "string",
+            "description": "赛事名称"
+          },
+          "dueTime": {
+            "type": "string",
+            "description": "押注截止日期",
+            "format": "date-time"
+          },
+          "startTime": {
+            "type": "string",
+            "description": "比赛开始日期",
+            "format": "date-time"
+          },
+          "ateam": {
+            "$ref": "#/components/schemas/ApiGameTeam"
+          },
+          "bteam": {
+            "$ref": "#/components/schemas/ApiGameTeam"
+          },
+          "close": {
+            "$ref": "#/components/schemas/MatchClose"
+          }
+        },
+        "description": "分页数据"
+      },
+      "MatchClose": {
+        "type": "object",
+        "properties": {
+          "winTeam": {
+            "type": "integer",
+            "description": "盈方战队",
+            "format": "int64"
+          },
+          "closeTime": {
+            "type": "string",
+            "description": "结算时间",
+            "format": "date-time"
+          },
+          "winAmount": {
+            "type": "number",
+            "description": "盈方总金额"
+          },
+          "lossAmount": {
+            "type": "number",
+            "description": "败方总金额"
+          },
+          "feeAmount": {
+            "type": "number",
+            "description": "系统抽水"
+          },
+          "bonusAmount": {
+            "type": "number",
+            "description": "盈方单位分红"
+          },
+          "tlement": {
+            "$ref": "#/components/schemas/MatchClose"
+          }
+        },
+        "description": "结算信息"
+      },
+      "PageRestAdminGameMatch": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页大小",
+            "format": "int32"
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "当前页",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "description": "总页数",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "description": "分页数据",
+            "items": {
+              "$ref": "#/components/schemas/AdminGameMatch"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "GameMatchComplete": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "竞猜Id",
+            "format": "int64"
+          },
+          "ateamWin": {
+            "type": "integer",
+            "description": "A队赢得场次",
+            "format": "int32"
+          },
+          "bteamWin": {
+            "type": "integer",
+            "description": "B队赢得场次",
+            "format": "int32"
+          }
+        }
+      },
+      "GameMatchRemarkQuery": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "[分页]当前页，默认为1",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "[分页]每页大小，默认50，最大2000",
+            "format": "int32"
+          },
+          "sortList": {
+            "type": "array",
+            "description": "[分页]排序列表，例：[{\"field\":\"createTime\", \"type\":\"desc\"}]",
+            "items": {
+              "$ref": "#/components/schemas/PageSort"
+            }
+          },
+          "uid": {
+            "type": "integer",
+            "description": "用户Id[前台不传]",
+            "format": "int64"
+          },
+          "keyword": {
+            "type": "string",
+            "description": "关键字"
+          },
+          "mid": {
+            "type": "integer",
+            "description": "比赛Id",
+            "format": "int64"
+          },
+          "startTimestamp": {
+            "type": "integer",
+            "description": "开始时间戳",
+            "format": "int64"
+          },
+          "endTimestamp": {
+            "type": "integer",
+            "description": "结束时间戳",
+            "format": "int64"
+          }
+        }
+      },
+      "GameMatchRemarkExtends": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "主键Id",
+            "format": "int64"
+          },
+          "uid": {
+            "type": "integer",
+            "description": "用户Id",
+            "format": "int64"
+          },
+          "mid": {
+            "type": "integer",
+            "description": "比赛Id",
+            "format": "int64"
+          },
+          "remark": {
+            "type": "string",
+            "description": "用户内容"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          },
+          "userPhoto": {
+            "type": "string",
+            "description": "用户头像"
+          }
+        },
+        "description": "分页数据"
+      },
+      "PageRestGameMatchRemarkExtends": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页大小",
+            "format": "int32"
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "当前页",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "description": "总页数",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "description": "分页数据",
+            "items": {
+              "$ref": "#/components/schemas/GameMatchRemarkExtends"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "GameContestQuery": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "[分页]当前页，默认为1",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "[分页]每页大小，默认50，最大2000",
+            "format": "int32"
+          },
+          "sortList": {
+            "type": "array",
+            "description": "[分页]排序列表，例：[{\"field\":\"createTime\", \"type\":\"desc\"}]",
+            "items": {
+              "$ref": "#/components/schemas/PageSort"
+            }
+          },
+          "keyword": {
+            "type": "string",
+            "description": "关键字"
+          },
+          "gid": {
+            "type": "integer",
+            "description": "游戏Id",
+            "format": "int64"
+          }
+        }
+      },
+      "GameContest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "赛事Id",
+            "format": "int64"
+          },
+          "gid": {
+            "type": "integer",
+            "description": "游戏Id",
+            "format": "int64"
+          },
+          "rid": {
+            "type": "integer",
+            "description": "雷电Id",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string",
+            "description": "赛事名称"
+          },
+          "intro": {
+            "type": "string",
+            "description": "赛事简介"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          }
+        },
+        "description": "分页数据"
+      },
+      "PageRestGameContest": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页大小",
+            "format": "int32"
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "当前页",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "description": "总页数",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "description": "分页数据",
+            "items": {
+              "$ref": "#/components/schemas/GameContest"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "UploadParam": {
+        "type": "object",
+        "properties": {
+          "fileSize": {
+            "type": "integer",
+            "description": "文件大小，单位byte",
+            "format": "int64"
+          },
+          "fileKey": {
+            "type": "string",
+            "description": "文件名称，支持带path，如：user/head.jpg"
+          },
+          "fileMd5": {
+            "type": "string",
+            "description": "文件MD5值(Base64编码)"
+          }
+        }
+      },
+      "BaseRestUploadFile": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/UploadFile"
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "UploadFile": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "上传Id",
+            "format": "int64"
+          },
+          "uid": {
+            "type": "string",
+            "description": "用户UID"
+          },
+          "userIp": {
+            "type": "string",
+            "description": "用户IP"
+          },
+          "userAgent": {
+            "type": "string",
+            "description": "客户端"
+          },
+          "userReferer": {
+            "type": "string",
+            "description": "来源页面"
+          },
+          "fileSize": {
+            "type": "integer",
+            "description": "文件大小，单位bytes",
+            "format": "int64"
+          },
+          "fileKey": {
+            "type": "string",
+            "description": "文件名称路径"
+          },
+          "fileMd5": {
+            "type": "string",
+            "description": "文件MD5"
+          },
+          "frontUrl": {
+            "type": "string",
+            "description": "访问链接"
+          },
+          "uploadUrl": {
+            "type": "string",
+            "description": "上传链接"
+          },
+          "client": {
+            "type": "boolean",
+            "description": "是否是客户端"
+          },
+          "expireTime": {
+            "type": "string",
+            "description": "上传过期时间",
+            "format": "date-time"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          }
+        },
+        "description": "数据"
+      },
+      "ConfigTask": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "任务Id",
+            "format": "int64"
+          },
+          "taskName": {
+            "type": "string",
+            "description": "任务名称"
+          },
+          "taskLogo": {
+            "type": "string",
+            "description": "任务图标"
+          },
+          "taskTarget": {
+            "type": "string",
+            "description": "任务目标"
+          },
+          "taskType": {
+            "type": "string",
+            "description": "任务类型",
+            "enum": ["target", "invite"]
+          },
+          "dayRepeat": {
+            "type": "boolean",
+            "description": "每日重复"
+          },
+          "minDelay": {
+            "type": "integer",
+            "description": "延迟分钟",
+            "format": "int32"
+          },
+          "rewardPoint": {
+            "type": "number",
+            "description": "奖励积分"
+          },
+          "rewardCoin": {
+            "type": "number",
+            "description": "奖励金币"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          }
+        }
+      },
+      "ConfigSign": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "integer",
+            "description": "奖励天数",
+            "format": "int32"
+          },
+          "rewardPoint": {
+            "type": "number",
+            "description": "奖励积分"
+          },
+          "rewardCoin": {
+            "type": "number",
+            "description": "奖励金币"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          }
+        }
+      },
+      "ConfigPoint": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "积分类型",
+            "enum": ["register", "login", "post", "match", "stake"]
+          },
+          "rewardPoint": {
+            "type": "number",
+            "description": "奖励积分"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          },
+          "typeText": {
+            "type": "string",
+            "description": "积分类型文本"
+          }
+        }
+      },
+      "ConfigBase": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "主键Id",
+            "format": "int64"
+          },
+          "bonusRate": {
+            "type": "number",
+            "description": "抽水比例，单位100%"
+          },
+          "drawFee": {
+            "type": "number",
+            "description": "平局手续费，单位100%"
+          },
+          "systemSn": {
+            "type": "string",
+            "description": "系统编码"
+          },
+          "systemName": {
+            "type": "string",
+            "description": "系统名称"
+          },
+          "systemLogo": {
+            "type": "string",
+            "description": "系统图标"
+          },
+          "tonConf": {
+            "$ref": "#/components/schemas/TonConf"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          }
+        }
+      },
+      "TonConf": {
+        "type": "object",
+        "properties": {
+          "receipt": {
+            "type": "string",
+            "description": "收款地址"
+          },
+          "usdtCoin": {
+            "type": "number",
+            "description": "金币兑换比例,1USDT=usdtCoin个金币"
+          },
+          "coinOptions": {
+            "type": "array",
+            "description": "金币数量选项",
+            "items": {
+              "type": "number",
+              "description": "金币数量选项"
+            }
+          }
+        },
+        "description": "TON链配置"
+      },
+      "ConfigBanner": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "主键Id",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string",
+            "description": "标题,长度50"
+          },
+          "content": {
+            "type": "string",
+            "description": "内容"
+          },
+          "imgUrl": {
+            "type": "string",
+            "description": "图片地址"
+          },
+          "jumpUrl": {
+            "type": "string",
+            "description": "跳转地址"
+          },
+          "enable": {
+            "type": "boolean",
+            "description": "是否启用"
+          },
+          "sorted": {
+            "type": "integer",
+            "description": "排序大小，越大越靠前",
+            "format": "int32"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          }
+        }
+      },
+      "ConfigBannerQuery": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "[分页]当前页，默认为1",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "[分页]每页大小，默认50，最大2000",
+            "format": "int32"
+          },
+          "sortList": {
+            "type": "array",
+            "description": "[分页]排序列表，例：[{\"field\":\"createTime\", \"type\":\"desc\"}]",
+            "items": {
+              "$ref": "#/components/schemas/PageSort"
+            }
+          },
+          "keyword": {
+            "type": "string",
+            "description": "关键字：查询title"
+          },
+          "enable": {
+            "type": "boolean",
+            "description": "是否启用：false=停用 true=启用"
+          }
+        }
+      },
+      "PageRestConfigBanner": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页大小",
+            "format": "int32"
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "当前页",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "description": "总页数",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "description": "分页数据",
+            "items": {
+              "$ref": "#/components/schemas/ConfigBanner"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "UserFriendQuery": {
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "[分页]当前页，默认为1",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "[分页]每页大小，默认50，最大2000",
+            "format": "int32"
+          },
+          "sortList": {
+            "type": "array",
+            "description": "[分页]排序列表，例：[{\"field\":\"createTime\", \"type\":\"desc\"}]",
+            "items": {
+              "$ref": "#/components/schemas/PageSort"
+            }
+          },
+          "uid": {
+            "type": "integer",
+            "description": "用户UID",
+            "format": "int64"
+          },
+          "startTimestamp": {
+            "type": "integer",
+            "description": "开始时间戳",
+            "format": "int64"
+          },
+          "endTimestamp": {
+            "type": "integer",
+            "description": "结束时间戳",
+            "format": "int64"
+          }
+        }
+      },
+      "PageRestUserFriends": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "总条数",
+            "format": "int64"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页大小",
+            "format": "int32"
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "当前页",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "description": "总页数",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "description": "分页数据",
+            "items": {
+              "$ref": "#/components/schemas/UserFriends"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "UserFriends": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "主键Id",
+            "format": "int64"
+          },
+          "uid": {
+            "type": "integer",
+            "description": "用户Id",
+            "format": "int64"
+          },
+          "fuid": {
+            "type": "integer",
+            "description": "上级Id",
+            "format": "int64"
+          },
+          "coin": {
+            "type": "number",
+            "description": "奖励金币"
+          },
+          "point": {
+            "type": "number",
+            "description": "奖励积分"
+          },
+          "status": {
+            "type": "boolean",
+            "description": "是否奖励"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          }
+        },
+        "description": "分页数据"
+      },
+      "BaseAdmin": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "account": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "loginTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "loginToken": {
+            "type": "string"
+          },
+          "userAdmin": {
+            "type": "boolean"
+          }
+        },
+        "description": "数据"
+      },
+      "BaseRestBaseAdmin": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BaseAdmin"
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "BaseRestGoogleKey": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/GoogleKey"
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "GoogleKey": {
+        "type": "object",
+        "properties": {
+          "secretKey": {
+            "type": "string",
+            "description": "私钥"
+          },
+          "secretUri": {
+            "type": "string",
+            "description": "私钥二维码"
+          }
+        },
+        "description": "数据"
+      },
+      "BaseRestListTonCoin": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "description": "数据",
+            "items": {
+              "$ref": "#/components/schemas/TonCoin"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "ApiMatchEvent": {
+        "type": "object",
+        "properties": {
+          "对战队伍": {
+            "type": "string"
+          },
+          "比赛场次标签列表": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "比赛场次事件列表": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApiMatchEventStage"
+            }
+          }
+        },
+        "description": "数据"
+      },
+      "ApiMatchEventDetail": {
+        "type": "object",
+        "properties": {
+          "eventName": {
+            "type": "string",
+            "description": "事件名称"
+          },
+          "eventResult": {
+            "type": "integer",
+            "description": "事件结果，-1=无结果 0=false 1=true",
+            "format": "int32"
+          },
+          "odds": {
+            "type": "string",
+            "description": "事件赔率"
+          }
+        },
+        "description": "事件分组详情"
+      },
+      "ApiMatchEventGroup": {
+        "type": "object",
+        "properties": {
+          "group": {
+            "type": "string",
+            "description": "事件分组名称"
+          },
+          "events": {
+            "type": "array",
+            "description": "事件分组详情",
+            "items": {
+              "$ref": "#/components/schemas/ApiMatchEventDetail"
+            }
+          }
+        },
+        "description": "事件列表"
+      },
+      "ApiMatchEventStage": {
+        "type": "object",
+        "properties": {
+          "stage": {
+            "type": "string",
+            "description": "对局名称"
+          },
+          "groups": {
+            "type": "array",
+            "description": "事件列表",
+            "items": {
+              "$ref": "#/components/schemas/ApiMatchEventGroup"
+            }
+          }
+        }
+      },
+      "BaseRestApiMatchEvent": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ApiMatchEvent"
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "BaseRestListConfigTask": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "description": "数据",
+            "items": {
+              "$ref": "#/components/schemas/ConfigTask"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "BaseRestListConfigSign": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "description": "数据",
+            "items": {
+              "$ref": "#/components/schemas/ConfigSign"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "BaseRestListConfigPoint": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "description": "数据",
+            "items": {
+              "$ref": "#/components/schemas/ConfigPoint"
+            }
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "BaseRestConfigBase": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ConfigBase"
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      },
+      "ApiFrientSummary": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "integer",
+            "description": "用户Id",
+            "format": "int64"
+          },
+          "count": {
+            "type": "integer",
+            "description": "好友总数",
+            "format": "int32"
+          },
+          "coin": {
+            "type": "number",
+            "description": "金币总数"
+          },
+          "point": {
+            "type": "number",
+            "description": "积分总数"
+          }
+        },
+        "description": "数据"
+      },
+      "BaseRestApiFrientSummary": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ApiFrientSummary"
+          },
+          "status": {
+            "type": "integer",
+            "description": "状态：200=成功",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "description": "异常消息"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "追踪Id"
+          }
+        }
+      }
+    }
+  }
+}

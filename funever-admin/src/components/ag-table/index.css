@@ -1,0 +1,57 @@
+.ag-theme-alpine,
+.ag-theme-alpine-dark {
+  --ag-header-height: 44px;
+  --ag-row-height: calc(var(--ag-grid-size) * 7 + 4px);
+}
+.ag-theme-alpine-dark {
+  --ag-background-color: #212b36;
+  --ag-odd-row-background-color: #212b36;
+  --ag-header-foreground-color: #919eab;
+  --ag-header-background-color: rgba(145, 158, 171, 0.16);
+}
+
+.ag-theme-alpine .ag-header,
+.ag-theme-alpine-dark .ag-header {
+  font-weight: 600;
+  border-bottom: none;
+}
+
+.ag-theme-alpine .ag-header-cell,
+.ag-theme-alpine-dark .ag-header-cell {
+  line-height: 24px;
+  font-size: 12px;
+  padding: 6px 16px;
+}
+
+.ag-cell {
+  font-size: 12px;
+}
+
+.ag-side-buttons {
+  display: none;
+}
+.ag-tool-panel-wrapper,
+.ag-ltr .ag-side-bar-left,
+.ag-rtl .ag-side-bar-right {
+  border: none !important;
+}
+
+.ag-group-contracted,
+.ag-group-expanded,
+.ag-icon-tree-closed {
+  color: #46e372 !important ;
+  background-image: none !important;
+}
+
+.ag-root.ag-layout-normal {
+  height: auto;
+}
+
+.ag-cell {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.ag-body-horizontal-scroll {
+  cursor: pointer;
+}

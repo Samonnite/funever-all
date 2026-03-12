@@ -1,0 +1,77 @@
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 8px;
+  height: 8px;
+  background: transparent;
+}
+::-webkit-scrollbar-track {
+  width: 8px !important;
+  border-radius: 10px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 115, 129, 0.48);
+  width: 8px !important;
+  border-radius: 10px;
+}
+.mui-ellipsis {
+  overflow: hidden; /*规定当文本溢出包含元素时发生的事情*/
+  white-space: nowrap; /*如何处理元素内的空白符。nowrap表示文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。*/
+  text-overflow: ellipsis; /*显示省略符号来代表被修剪的文本*/
+}
+.mui-ellipsis-2 {
+  display: -webkit-box; /*将对象作为弹性伸缩盒子模型显示*/
+  overflow: hidden;
+
+  white-space: normal !important;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+
+  -webkit-line-clamp: 2; /*限制在一个块元素显示的文本的行数*/
+  -webkit-box-orient: vertical; /*设置或检索伸缩盒对象的子元素的排列方式*/
+}
+
+.ws-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 700;
+  line-height: 1.7142857142857142;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+  font-family: Public Sans, sans-serif;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #00ab55;
+  box-shadow: none;
+}
+
+.ws-btn:hover {
+  background-color: rgba(0, 171, 85, 0.08);
+}
