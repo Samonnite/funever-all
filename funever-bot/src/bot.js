@@ -5,7 +5,7 @@ import { Bot, Keyboard, InlineKeyboard, GrammyError, HttpError } from "grammy";
 
 const TELEGRAM_BOT_TOKEN =
   process.env.TELEGRAM_BOT_TOKEN ||
-  "7288434975:AAH1Cb2i1bkjNoKmkqv9ulZs4Q9hD43U7yQ";
+  "$YOUR_TOKEN_HERE";
 const MINI_APP_HOST =
   process.env.MINI_APP_HOST || "https://test-ton.funever.io";
 

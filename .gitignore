@@ -1,0 +1,1 @@
+.env\n.env.test\n.env.production\n.env.local\nnode_modules/\ndist/\nbuild/
